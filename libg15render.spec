@@ -4,7 +4,7 @@
 
 Name:           libg15render
 Version:        1.2
-Release:        %mkrel 1
+Release:        %mkrel 2
 Summary:        Library to render text and shapes into a buffer usable by the G15 keyboard
 License:        GPL
 Group:          System/Libraries
@@ -12,6 +12,8 @@ URL:            http://g15tools.sourceforge.net/
 Source:         http://downloads.sourceforge.net/g15tools/libg15render-%{version}.tar.bz2
 BuildRequires:  freetype2-devel
 BuildRequires:  g15-devel
+BuildRequires:  doxygen
+BuildRequires:  tetex-latex
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
@@ -58,6 +60,10 @@ This library probably isn't very useful without libg15 and/or g15daemon.
 %build
 %{configure2_5x} --enable-ttf
 %{make}
+%{_bindir}/doxygen
+pushd doc/latex
+%{make} pdf
+popd
 
 %install
 %{__rm} -rf %{buildroot}
@@ -79,6 +85,7 @@ This library probably isn't very useful without libg15 and/or g15daemon.
 
 %files -n %{libname_devel}
 %defattr(-,root,root,0755)
+%doc doc/html doc/latex/refman.pdf
 %{_includedir}/*
 %{_libdir}/lib*.la
 %{_libdir}/libg15render.so
