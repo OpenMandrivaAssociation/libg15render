@@ -4,7 +4,7 @@
 
 Name:           libg15render
 Version:        1.2
-Release:        %mkrel 2
+Release:        %mkrel 3
 Summary:        Library to render text and shapes into a buffer usable by the G15 keyboard
 License:        GPL
 Group:          System/Libraries
@@ -25,6 +25,7 @@ This library probably isn't very useful without libg15 and/or g15daemon.
 %package -n %{libname}
 Summary:        Renders text and shapes into a buffer usable by the G15 keyboard
 Group:          System/Libraries
+Provides:       g15render = %{version}-%{release}
 
 %description -n %{libname}
 This is a library to render text and shapes into a buffer usable by the
@@ -36,6 +37,7 @@ This library probably isn't very useful without libg15 and/or g15daemon.
 Summary:        Renders text and shapes into a buffer usable by the G15 keyboard
 Group:          Development/C
 Provides:       g15render-devel = %{version}-%{release}
+Requires:       g15render = %{version}-%{release}
 
 %description -n %{libname_devel}
 This is a library to render text and shapes into a buffer usable by the
@@ -47,6 +49,7 @@ This library probably isn't very useful without libg15 and/or g15daemon.
 Summary:        Renders text and shapes into a buffer usable by the G15 keyboard
 Group:          Development/C
 Provides:       g15render-static-devel = %{version}-%{release}
+Requires:       g15render-devel = %{version}-%{release}
 
 %description -n %{libname_static_devel}
 This is a library to render text and shapes into a buffer usable by the
