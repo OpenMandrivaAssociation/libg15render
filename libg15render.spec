@@ -3,7 +3,7 @@
 
 Name:           libg15render
 Version:        1.2
-Release:        10
+Release:        11
 Summary:        Library to render text and shapes into a buffer usable by the G15 keyboard
 License:        GPLv2+
 Group:          System/Libraries
