@@ -9,7 +9,7 @@ License:        GPLv2+
 Group:          System/Libraries
 URL:            http://g15tools.sourceforge.net/
 Source0:        http://downloads.sourceforge.net/g15tools/libg15render-%{version}.tar.bz2
-BuildRequires:  freetype2-devel
+BuildRequires:  pkgconfig(freetype2)
 BuildRequires:  g15-devel
 BuildRequires:  doxygen
 
@@ -46,12 +46,12 @@ This library probably isn't very useful without libg15 and/or g15daemon.
 %setup -q
 
 %build
-%configure2_5x --enable-ttf --disable-static
-%make
+%configure --enable-ttf --disable-static
+%make_build
 %{_bindir}/doxygen
 
 %install
-%{makeinstall_std}
+%make_install
 %{__rm} -r %{buildroot}%{_docdir}
 
 %files -n %{libname}
