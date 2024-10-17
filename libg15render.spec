@@ -7,7 +7,7 @@ Release:        11
 Summary:        Library to render text and shapes into a buffer usable by the G15 keyboard
 License:        GPLv2+
 Group:          System/Libraries
-URL:            http://g15tools.sourceforge.net/
+URL:            https://g15tools.sourceforge.net/
 Source0:        http://downloads.sourceforge.net/g15tools/libg15render-%{version}.tar.bz2
 BuildRequires:  pkgconfig(freetype2)
 BuildRequires:  g15-devel
